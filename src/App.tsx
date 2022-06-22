@@ -1,7 +1,12 @@
 import "./App.scss";
+import Catalog from "./pages/Catalog/Catalog";
 
 function App() {
-  return <div className="App">Skypro</div>;
+  return (
+    <div className="App">
+      <Catalog />
+    </div>
+  );
 }
 
 export default App;
