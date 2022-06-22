@@ -1,4 +1,4 @@
-import Layout from "../../layout/Layout/Layout";
+import Layout from "layout/Layout";
 
 const Catalog = () => {
   return <Layout>page</Layout>;

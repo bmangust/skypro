@@ -1,17 +1,21 @@
+@import "styles/_variables";
+
 .page {
   width: 100vw;
   height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr;
-}
-
-.header {
-  height: 89px;
-  width: 100%;
-  background: #c4c4c4;
-  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .content {
   padding: 16px;
+  flex-grow: 1;
+}
+
+@media (min-width: $phone_width) {
+  .page {
+    padding: 0 24px;
+  }
 }

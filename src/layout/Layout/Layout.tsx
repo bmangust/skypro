@@ -1,5 +1,6 @@
 import { FC } from "react";
 import "./Layout.scss";
+import Header from "components/Header";
 
 interface Props {
   children: React.ReactNode;
@@ -8,7 +9,7 @@ interface Props {
 const Layout: FC<Props> = ({ children }) => {
   return (
     <div className="page">
-      <div className="header">Skypro</div>
+      <Header />
       <div className="content">{children}</div>
     </div>
   );

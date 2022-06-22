@@ -1,0 +1,55 @@
+@import "styles/_variables";
+
+.header {
+  height: 89px;
+  background: #c4c4c4;
+  padding: 16px;
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+
+  .h1 {
+    color: white;
+    display: block;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 600;
+    margin-right: auto;
+  }
+
+  .icon {
+    margin-left: 1rem;
+    display: inline-block !important;
+  }
+
+  .link {
+    display: none;
+    margin-left: 32px;
+  }
+}
+
+@media (min-width: $phone_width) {
+  .header {
+    height: 76px;
+    align-items: center;
+    padding: 0;
+
+    .h1 {
+      font-size: 36px;
+      line-height: 43.88px;
+    }
+
+    .icon {
+      display: none !important;
+    }
+    .link {
+      display: inline-block;
+    }
+  }
+}
+
+@media (min-width: $tablet_width) {
+  .header {
+    max-width: 1200px;
+  }
+}

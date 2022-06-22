@@ -1,5 +1,5 @@
 import "./App.scss";
-import Catalog from "./pages/Catalog/Catalog";
+import Catalog from "pages/Catalog";
 
 function App() {
   return (
