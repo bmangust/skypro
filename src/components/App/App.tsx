@@ -1,10 +1,12 @@
 import "./App.scss";
-import Catalog from "pages/Catalog";
+// import Catalog from "pages/Catalog";
+import Cart from "pages/Cart";
 
 function App() {
   return (
     <div className="App">
-      <Catalog />
+      <Cart />
+      {/* <Catalog /> */}
     </div>
   );
 }
