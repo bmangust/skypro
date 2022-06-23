@@ -1,20 +1,14 @@
+import { MouseEvent } from "react";
+import cn from "classnames";
 import "./CatalogItem.scss";
 import { formatPrice } from "utils";
 import { ReactComponent as CartIcon } from "assets/icons/cart.svg";
 import { ReactComponent as FaveIcon } from "assets/icons/fav.svg";
-import { MouseEvent } from "react";
-import cn from "classnames";
+import { Item } from "store/catalog";
 
-export interface Item {
-  img: string;
-  title: string;
-  description: string;
-  price: number;
-  isFavorite?: boolean;
-  date: number;
-}
+type Props = Omit<Item, "id">;
 
-const CatalogItem = ({ img, title, description, price, isFavorite }: Item) => {
+const CatalogItem = ({ img, title, description, price, isFavorite }: Props) => {
   const handleCartClick = (e: MouseEvent) => {
     e.stopPropagation();
     console.log("handleCartClick");

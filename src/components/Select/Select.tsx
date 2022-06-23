@@ -1,21 +1,23 @@
-import { ChangeEvent, useState } from "react";
+import { observer } from "mobx-react-lite";
+import type { ChangeEvent } from "react";
+import { catalog, SORTING_CRITERIA } from "store/catalog";
 import "./Select.scss";
 
 const options = [
-  { label: "сперва новые", value: "new" },
-  { label: "сначала дешевые", value: "cheap" },
-  { label: "сначала дорогие", value: "exp" },
+  { label: "сперва новые", value: SORTING_CRITERIA.new },
+  { label: "сначала дешевые", value: SORTING_CRITERIA.cheap },
+  { label: "сначала дорогие", value: SORTING_CRITERIA.expensive },
+  { label: "сначала популярные", value: SORTING_CRITERIA.popular },
 ];
 
 const Select = () => {
-  const [selected, setSelected] = useState(options[0].value);
+  const { sortBy, sort } = catalog;
   const handleSelect = (e: ChangeEvent<HTMLSelectElement>) => {
-    console.log(e.currentTarget.value);
-    setSelected(e.currentTarget.value);
+    sort(+e.currentTarget.value);
   };
 
   return (
-    <select className="select" value={selected} onChange={handleSelect}>
+    <select className="select" value={sortBy} onChange={handleSelect}>
       {options.map((el) => (
         <option key={el.value} value={el.value}>
           Порядок: {el.label}
@@ -25,4 +27,4 @@ const Select = () => {
   );
 };
 
-export default Select;
+export default observer(Select);
