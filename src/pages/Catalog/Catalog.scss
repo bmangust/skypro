@@ -10,6 +10,12 @@
   overflow-y: scroll;
 }
 
+.select-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 32px;
+}
+
 @media (min-width: $phone_width) {
   .catalog {
     padding: 0;

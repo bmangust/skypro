@@ -3,6 +3,7 @@ import { formatPrice } from "utils";
 import { ReactComponent as CartIcon } from "assets/icons/cart.svg";
 import { ReactComponent as FaveIcon } from "assets/icons/fav.svg";
 import { MouseEvent } from "react";
+import cn from "classnames";
 
 export interface Item {
   img: string;
@@ -10,6 +11,7 @@ export interface Item {
   description: string;
   price: number;
   isFavorite?: boolean;
+  date: number;
 }
 
 const CatalogItem = ({ img, title, description, price, isFavorite }: Item) => {
@@ -22,6 +24,9 @@ const CatalogItem = ({ img, title, description, price, isFavorite }: Item) => {
     console.log("handleFaveClick");
   };
 
+  const getActiveClass = (classes: string): string =>
+    isFavorite ? cn(classes, "active") : classes;
+
   return (
     <div className="item">
       <div className="img-container">
@@ -30,7 +35,10 @@ const CatalogItem = ({ img, title, description, price, isFavorite }: Item) => {
           <button className="button icon" onClick={handleCartClick}>
             <CartIcon />
           </button>
-          <button className="button icon" onClick={handleFaveClick}>
+          <button
+            className={getActiveClass("button icon")}
+            onClick={handleFaveClick}
+          >
             <FaveIcon />
           </button>
         </div>

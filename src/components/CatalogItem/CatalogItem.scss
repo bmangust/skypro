@@ -45,7 +45,11 @@
   }
 
   .icon path {
-    fill: #c4c4c4;
+    fill: #fafafa;
+  }
+
+  .active path {
+    fill: red;
   }
 
   .button {
@@ -57,7 +61,7 @@
 
   .button:hover {
     path {
-      fill: white;
+      fill: red;
     }
   }
 
