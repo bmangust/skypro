@@ -21,17 +21,7 @@ const Catalog = () => {
       </div>
       <div className="catalog">
         {items.length ? (
-          items.map((el) => (
-            <CatalogItem
-              key={el.id}
-              img={el.img}
-              title={el.title}
-              description={el.description}
-              price={el.price}
-              isFavorite={el.isFavorite}
-              date={el.date}
-            />
-          ))
+          items.map((el) => <CatalogItem key={el.id} {...el} />)
         ) : (
           <Spinner />
         )}

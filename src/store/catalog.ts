@@ -112,6 +112,11 @@ class Catalog {
         this.items.sort((a, b) => a.id - b.id);
     }
   };
+
+  switchFave = (id: number) => {
+    const item = this.items.find((el) => el.id === id);
+    if (item) item.isFavorite = !item.isFavorite;
+  };
 }
 
 export const catalog = new Catalog();

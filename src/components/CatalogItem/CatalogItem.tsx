@@ -4,18 +4,24 @@ import "./CatalogItem.scss";
 import { formatPrice } from "utils";
 import { ReactComponent as CartIcon } from "assets/icons/cart.svg";
 import { ReactComponent as FaveIcon } from "assets/icons/fav.svg";
-import { Item } from "store/catalog";
+import { catalog, Item } from "store/catalog";
+import { observer } from "mobx-react-lite";
 
-type Props = Omit<Item, "id">;
-
-const CatalogItem = ({ img, title, description, price, isFavorite }: Props) => {
+const CatalogItem = ({
+  id,
+  img,
+  title,
+  description,
+  price,
+  isFavorite,
+}: Item) => {
   const handleCartClick = (e: MouseEvent) => {
     e.stopPropagation();
     console.log("handleCartClick");
   };
   const handleFaveClick = (e: MouseEvent) => {
     e.stopPropagation();
-    console.log("handleFaveClick");
+    catalog.switchFave(id);
   };
 
   const getActiveClass = (classes: string): string =>
@@ -44,4 +50,4 @@ const CatalogItem = ({ img, title, description, price, isFavorite }: Props) => {
   );
 };
 
-export default CatalogItem;
+export default observer(CatalogItem);
