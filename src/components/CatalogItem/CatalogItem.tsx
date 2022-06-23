@@ -24,7 +24,7 @@ const CatalogItem = ({ img, title, description, price, isFavorite }: Item) => {
 
   return (
     <div className="item">
-      <div className="img">
+      <div className="img-container">
         <img src={img} alt={`${title}`} />
         <div className="icon-container">
           <button className="button icon" onClick={handleCartClick}>

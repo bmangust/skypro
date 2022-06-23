@@ -8,10 +8,14 @@
   font-weight: 500;
   font-size: 24px;
   line-height: 30px;
-  display: inline-block;
+  max-width: 379px;
 
-  .img {
+  .img-container {
     position: relative;
+
+    img {
+      width: 100%;
+    }
   }
 
   .title {
@@ -23,6 +27,7 @@
     font-size: 14px;
     line-height: 17px;
     font-weight: 400;
+    text-align: start;
   }
 
   .price {
@@ -36,6 +41,7 @@
     width: 68px;
     display: flex;
     justify-content: space-between;
+    opacity: 0;
   }
 
   .icon path {
@@ -52,6 +58,12 @@
   .button:hover {
     path {
       fill: white;
+    }
+  }
+
+  .img-container:hover {
+    .icon-container {
+      opacity: 1;
     }
   }
 }
