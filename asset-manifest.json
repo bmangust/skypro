@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/skypro/static/css/main.be9be398.css",
-    "main.js": "/skypro/static/js/main.33cd645d.js",
-    "static/media/cart2.svg": "/skypro/static/media/cart2.b0df49f6fc81d4d6d0cb141e83ed2dd2.svg",
-    "static/media/fav.svg": "/skypro/static/media/fav.462f6ce79690c66c581fe529ec829a78.svg",
-    "static/media/cart.svg": "/skypro/static/media/cart.e37ee8eb0b635ee58d63c280d69b7ccd.svg",
-    "index.html": "/skypro/index.html",
-    "static/media/grid.svg": "/skypro/static/media/grid.7e1c5536feadba4aeb8285b4c9a2041f.svg",
-    "main.be9be398.css.map": "/skypro/static/css/main.be9be398.css.map",
-    "main.33cd645d.js.map": "/skypro/static/js/main.33cd645d.js.map"
+    "main.css": "/skypro.github.io/static/css/main.be9be398.css",
+    "main.js": "/skypro.github.io/static/js/main.07743b1a.js",
+    "static/media/cart2.svg": "/skypro.github.io/static/media/cart2.b0df49f6fc81d4d6d0cb141e83ed2dd2.svg",
+    "static/media/fav.svg": "/skypro.github.io/static/media/fav.462f6ce79690c66c581fe529ec829a78.svg",
+    "static/media/cart.svg": "/skypro.github.io/static/media/cart.e37ee8eb0b635ee58d63c280d69b7ccd.svg",
+    "index.html": "/skypro.github.io/index.html",
+    "static/media/grid.svg": "/skypro.github.io/static/media/grid.7e1c5536feadba4aeb8285b4c9a2041f.svg",
+    "main.be9be398.css.map": "/skypro.github.io/static/css/main.be9be398.css.map",
+    "main.07743b1a.js.map": "/skypro.github.io/static/js/main.07743b1a.js.map"
   },
   "entrypoints": [
     "static/css/main.be9be398.css",
-    "static/js/main.33cd645d.js"
+    "static/js/main.07743b1a.js"
   ]
 }
