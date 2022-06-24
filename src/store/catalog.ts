@@ -1,4 +1,4 @@
-import { makeAutoObservable } from "mobx";
+import { action, makeAutoObservable, runInAction } from "mobx";
 
 export enum SORTING_CRITERIA {
   new,
@@ -77,7 +77,6 @@ export const defaultItems: Item[] = [
 
 const fetchItems = async () =>
   new Promise<Item[]>((resolve) => {
-    console.log("fetchItems", this);
     setTimeout(() => resolve(defaultItems), 500);
   });
 
@@ -92,8 +91,10 @@ class Catalog {
   }
 
   loadItems = async () => {
-    this.items = await fetchItems();
-    console.log("loadItems", this);
+    const items = await fetchItems();
+    runInAction(() => {
+      this.items = items;
+    });
   };
 
   sort = (by: SORTING_CRITERIA) => {

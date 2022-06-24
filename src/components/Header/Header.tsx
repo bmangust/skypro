@@ -7,16 +7,16 @@ const Header = () => {
   return (
     <div className={css.header}>
       <h1 className={css.h1}>Интерьер.</h1>
-      <Link className={css.icon} href="#">
+      <Link className={css.icon} href="/">
         <GridIcon />
       </Link>
-      <Link className={css.icon} href="#">
+      <Link className={css.icon} href="/cart">
         <CartIcon />
       </Link>
-      <Link className={css.link} href="#">
+      <Link className={css.link} href="/">
         Каталог
       </Link>
-      <Link className={css.link} href="#">
+      <Link className={css.link} href="/cart">
         Корзина
       </Link>
     </div>

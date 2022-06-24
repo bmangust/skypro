@@ -4,11 +4,13 @@
 
   .buttons {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     gap: 30px;
     .button {
-      padding: 10px 25px;
-      max-width: 200px;
+      font-size: 14px;
+      padding: 10px 20px;
+      width: 200px;
       border: 1px solid black;
       border-radius: 50px;
       background: none;

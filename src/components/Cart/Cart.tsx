@@ -3,6 +3,7 @@ import { observer } from "mobx-react-lite";
 import { cart } from "store/cart";
 import css from "./Cart.module.scss";
 import cn from "classnames";
+import Link from "components/Link";
 
 interface Props {
   className?: string;
@@ -33,9 +34,9 @@ const Cart = ({ className }: Props) => {
         <button className={css.button} onClick={handleDelete}>
           Очистить корзину
         </button>
-        <button className={cn(css.button, css.secondary)}>
+        <Link href="/" className={cn(css.button, css.secondary)}>
           Продолжить покупки
-        </button>
+        </Link>
       </div>
     </div>
   );

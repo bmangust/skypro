@@ -1,12 +1,17 @@
 import css from "./App.module.scss";
 import Catalog from "pages/Catalog";
 import Checkout from "pages/Checkout";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className={css.App}>
-      <Checkout />
-      {/* <Catalog /> */}
+      <Router>
+        <Routes>
+          <Route path="/cart" element={<Checkout />} />
+          <Route path="/" element={<Catalog />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

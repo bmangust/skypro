@@ -27,11 +27,14 @@ const CatalogItem = (item: Item) => {
       <div className={css.imgContainer}>
         <img src={img} alt={`${title}`} />
         <div className={css.iconContainer}>
-          <button className="button icon" onClick={handleCartClick}>
+          <button
+            className={cn(css.button, css.icon)}
+            onClick={handleCartClick}
+          >
             <CartIcon />
           </button>
           <button
-            className={getActiveClass("button icon")}
+            className={getActiveClass(cn(css.button, css.icon))}
             onClick={handleFaveClick}
           >
             <FaveIcon />
