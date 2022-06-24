@@ -1,0 +1,22 @@
+.cart {
+  display: flex;
+  flex-direction: column;
+
+  .buttons {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    .button {
+      padding: 10px 25px;
+      max-width: 200px;
+      border: 1px solid black;
+      border-radius: 50px;
+      background: none;
+    }
+
+    .secondary {
+      background-color: black;
+      color: white;
+    }
+  }
+}

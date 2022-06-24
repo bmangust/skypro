@@ -17,7 +17,7 @@ export interface Item {
   date: number;
 }
 
-const defaultItems: Item[] = [
+export const defaultItems: Item[] = [
   {
     id: 0,
     img: "/images/image01.png",

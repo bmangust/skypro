@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import { Item } from "./catalog";
+import { defaultItems, Item } from "./catalog";
 
 export interface CartItem {
   item: Item;
@@ -13,6 +13,8 @@ class Cart {
   private limits = { min: 1, max: 10 };
   constructor() {
     this.items = {};
+    this.add(defaultItems[0]);
+    this.add(defaultItems[1]);
     makeAutoObservable(this);
   }
 
