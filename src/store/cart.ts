@@ -75,7 +75,13 @@ class Cart {
   };
 
   clearCart = () => {
-    this._items = [];
+    this._items = {};
+  };
+
+  getTotalPrice = () => {
+    return Object.values(this._items).reduce((prev, cur) => {
+      return (prev += cur.item.price * cur.quantity);
+    }, 0);
   };
 }
 

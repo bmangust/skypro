@@ -4,7 +4,11 @@ import { cart } from "store/cart";
 import css from "./Cart.module.scss";
 import cn from "classnames";
 
-const Cart = () => {
+interface Props {
+  className?: string;
+}
+
+const Cart = ({ className }: Props) => {
   const { items, updateItem, deleteItem, clearCart } = cart;
   const handleDelete = () => {
     clearCart();
@@ -23,7 +27,7 @@ const Cart = () => {
     <span className={css.message}>В корзине пусто</span>
   );
   return (
-    <div className={css.cart}>
+    <div className={cn(css.cart, className)}>
       {content}
       <div className={css.buttons}>
         <button className={css.button} onClick={handleDelete}>

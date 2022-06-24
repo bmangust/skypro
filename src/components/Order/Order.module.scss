@@ -1,0 +1,57 @@
+@import "styles/_variables";
+
+.order {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #f7f6f6;
+  border-radius: 20px;
+  max-width: 379px;
+  padding: 27px;
+
+  .h2 {
+    font-family: "Poppins";
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    .input {
+      border: none;
+      border-bottom: 1px solid #cacdd8;
+      background-color: transparent;
+      padding: 5px 0;
+      font-size: 14px;
+    }
+  }
+
+  .priceWrapper {
+    font-size: 24px;
+    line-height: 30px;
+
+    .price {
+      font-weight: 500;
+    }
+  }
+
+  .submit {
+    padding: 10px;
+    font-size: 16px;
+    line-height: 19.5px;
+    outline: none;
+    border: 1px solid #040404;
+    border-radius: 50px;
+    background-color: transparent;
+  }
+}
+
+@media (min-width: $tablet_width) {
+  .order {
+    width: 379px;
+  }
+}

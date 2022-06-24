@@ -1,0 +1,31 @@
+@import "styles/_variables";
+
+.checkout {
+  padding-top: 48px;
+  display: grid;
+  grid-gap: 64px;
+  grid-template-areas:
+    "cart"
+    "order";
+
+  .cart {
+    grid-area: "cart";
+  }
+  .order {
+    grid-area: "order";
+  }
+}
+
+@media (min-width: $tablet_width) {
+  .checkout {
+    width: 100%;
+    justify-content: start;
+  }
+}
+
+@media (min-width: $tablet_width) {
+  .checkout {
+    grid-template-areas: "cart order";
+    justify-content: space-between;
+  }
+}
