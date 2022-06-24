@@ -35,9 +35,11 @@ export class CartItem {
 
 class Cart {
   _items: { [key: number]: CartItem };
-  error?: string;
+  error: string;
   constructor() {
     this._items = {};
+    this.error = "";
+    this.add(defaultItems[0]);
     makeAutoObservable(this);
   }
 
@@ -60,7 +62,7 @@ class Cart {
     if (this._items[item.id]) {
       try {
         this._items[item.id].update(quantity);
-        delete this.error;
+        this.error = "";
       } catch (e: any) {
         console.log(e.message);
         this.error = e.toString();

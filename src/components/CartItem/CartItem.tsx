@@ -4,6 +4,8 @@ import css from "./CartItem.module.scss";
 import { formatPrice } from "utils";
 import type { CartItem } from "store/cart";
 import type { Item } from "store/catalog";
+import { ReactComponent as Chevron } from "assets/icons/chevron.svg";
+import cn from "classnames";
 
 interface Props extends Pick<CartItem, "item" | "quantity"> {
   updateItem: (item: Item, quantity: number) => void;
@@ -19,6 +21,14 @@ const CatalogItem = ({ item, quantity, updateItem, deleteItem }: Props) => {
     deleteItem(item);
   };
 
+  const handleAdd = () => {
+    updateItem(item, quantity + 1);
+  };
+
+  const handleSubtract = () => {
+    updateItem(item, quantity - 1);
+  };
+
   return (
     <div className={css.item}>
       <img className={css.img} src={item.img} alt={`${item.title}`} />
@@ -32,12 +42,21 @@ const CatalogItem = ({ item, quantity, updateItem, deleteItem }: Props) => {
             Удалить
           </button>
         </div>
-        <input
-          className={css.input}
-          value={quantity}
-          onChange={handleQuantityChange}
-          type="number"
-        />
+        <div className={css.input}>
+          <input
+            value={quantity}
+            onChange={handleQuantityChange}
+            type="number"
+          />
+          <div className={css.buttons}>
+            <button className={css.icon} onClick={handleAdd}>
+              <Chevron />
+            </button>
+            <button className={css.icon} onClick={handleSubtract}>
+              <Chevron className={css.flip} />
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

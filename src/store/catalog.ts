@@ -25,7 +25,6 @@ export const defaultItems: Item[] = [
     description:
       "Основание из полированной нержавеющей стали, придает оригинальный парящий эффект.",
     price: 120000,
-    isFavorite: true,
     date: new Date("2021-12-17T03:24:00").getTime(),
   },
   {

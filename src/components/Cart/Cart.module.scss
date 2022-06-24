@@ -32,6 +32,11 @@
 
   .header {
     display: none;
+    justify-content: space-between;
+    margin-bottom: 14px;
+    margin-right: 36px;
+    font-size: 16px;
+    line-height: 20px;
   }
 }
 
@@ -39,10 +44,6 @@
   .cart {
     .header {
       display: flex;
-      justify-content: space-between;
-      margin-bottom: 14px;
-      font-size: 16px;
-      line-height: 20px;
     }
   }
 }
