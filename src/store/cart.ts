@@ -38,7 +38,6 @@ class Cart {
   error?: string;
   constructor() {
     this._items = {};
-    this.add(defaultItems[0]);
     makeAutoObservable(this);
   }
 
