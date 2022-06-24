@@ -20,7 +20,7 @@ const CatalogItem = (item: Item) => {
     catalog.switchFave(id);
   };
   const getActiveClass = (classes: string): string =>
-    isFavorite ? cn(classes, "active") : classes;
+    isFavorite ? cn(classes, css.active) : classes;
 
   return (
     <div className={css.item}>
