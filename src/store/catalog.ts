@@ -20,7 +20,7 @@ export interface Item {
 export const defaultItems: Item[] = [
   {
     id: 0,
-    img: "/images/image01.png",
+    img: "./images/image01.png",
     title: "Кровать TATRAN",
     description:
       "Основание из полированной нержавеющей стали, придает оригинальный парящий эффект.",
@@ -30,7 +30,7 @@ export const defaultItems: Item[] = [
   },
   {
     id: 1,
-    img: "/images/image02.png",
+    img: "./images/image02.png",
     title: "Кресло VILORA",
     description:
       "Мягкое и уютное, аккуратное и стильное. Упругие подушки сиденья и приятная на ощупь ткань. ",
@@ -39,7 +39,7 @@ export const defaultItems: Item[] = [
   },
   {
     id: 2,
-    img: "/images/image03.png",
+    img: "./images/image03.png",
     title: "Стол MENU",
     description:
       "Европейский дуб - отличается особой прочностью и стабильностью.",
@@ -48,7 +48,7 @@ export const defaultItems: Item[] = [
   },
   {
     id: 3,
-    img: "/images/image04.png",
+    img: "./images/image04.png",
     title: "Диван ASKESTA",
     description:
       "Благодаря защелкивающемуся механизму диван легко раскладывается в комфортную кровать",
@@ -57,7 +57,7 @@ export const defaultItems: Item[] = [
   },
   {
     id: 4,
-    img: "/images/image05.png",
+    img: "./images/image05.png",
     title: "Кресло LUNAR",
     description:
       "Прекрасно переносит солнечные лучи, перепады влажности и любые осадки",
@@ -66,7 +66,7 @@ export const defaultItems: Item[] = [
   },
   {
     id: 5,
-    img: "/images/image06.png",
+    img: "./images/image06.png",
     title: "Шкаф Nastan",
     description:
       "Мебель может быть оснащена разнообразными системами подсветки.",
