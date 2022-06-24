@@ -1,44 +1,81 @@
 import { makeAutoObservable } from "mobx";
-import { defaultItems, Item } from "./catalog";
+import type { Item } from "./catalog";
 
-export interface CartItem {
+interface CartItemProps {
+  item: Item;
+}
+export class CartItem {
   item: Item;
   quantity: number;
-}
-
-class Cart {
-  items: { [key: number]: CartItem };
-  error?: string;
-  // лимит может быть свойством Item, тогда реализация проверки чуть поменяется.
   private limits = { min: 1, max: 10 };
-  constructor() {
-    this.items = {};
-    this.add(defaultItems[0]);
-    this.add(defaultItems[1]);
+  constructor({ item }: CartItemProps) {
+    this.item = item;
+    this.quantity = 1;
     makeAutoObservable(this);
   }
 
-  add = (item: Item) => {
-    if (this.items[item.id]?.quantity > this.limits.max) {
-      this.error = "Достигнуто максимальное количество";
-    } else if (this.items[item.id]) {
-      this.items[item.id].quantity += 1;
-    } else {
-      this.items[item.id] = {
-        item,
-        quantity: 1,
-      };
-    }
-  };
-  subtract = (item: Item) => {
-    if (this.items[item.id]?.quantity > 2) {
-      this.items[item.id].quantity -= 1;
-      if (this.error) delete this.error;
+  private checkLimits = (quantity: number) => {
+    if (quantity > this.limits.max) {
+      throw new Error("Достигнуто максимальное количество");
+    } else if (quantity < this.limits.min) {
+      throw new Error("Достигнуто минимальное количество");
     }
   };
 
-  delete = (item: Item) => {
-    if (this.items[item.id]) delete this.items[item.id];
+  update = (quantity: number) => {
+    this.checkLimits(quantity);
+    this.quantity = quantity;
+  };
+
+  addOne = () => {
+    this.checkLimits(this.quantity + 1);
+    this.quantity += 1;
+  };
+}
+
+class Cart {
+  _items: { [key: number]: CartItem };
+  error?: string;
+  constructor() {
+    this._items = {};
+    makeAutoObservable(this);
+  }
+
+  get items() {
+    return this._items;
+  }
+
+  add = (item: Item) => {
+    try {
+      this._items[item.id]
+        ? this._items[item.id].addOne()
+        : (this._items[item.id] = new CartItem({ item }));
+    } catch (e: any) {
+      console.log(e.message);
+      this.error = e.toString();
+    }
+  };
+
+  updateItem = (item: Item, quantity: number) => {
+    if (this._items[item.id]) {
+      try {
+        this._items[item.id].update(quantity);
+        delete this.error;
+      } catch (e: any) {
+        console.log(e.message);
+        this.error = e.toString();
+      }
+    }
+  };
+
+  deleteItem = (item: Item) => {
+    if (this._items[item.id]) {
+      delete this._items[item.id];
+    }
+  };
+
+  clearCart = () => {
+    this._items = [];
   };
 }
 

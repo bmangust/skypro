@@ -3,12 +3,20 @@ import { observer } from "mobx-react-lite";
 import "./CartItem.scss";
 import { formatPrice } from "utils";
 import type { CartItem } from "store/cart";
-import Link from "components/Link";
+import type { Item } from "store/catalog";
 
-const CatalogItem = ({ item, quantity }: CartItem) => {
+interface Props extends Pick<CartItem, "item" | "quantity"> {
+  updateItem: (item: Item, quantity: number) => void;
+  deleteItem: (item: Item) => void;
+}
+
+const CatalogItem = ({ item, quantity, updateItem, deleteItem }: Props) => {
   const handleQuantityChange = (e: ChangeEvent<HTMLInputElement>) => {
-    e.stopPropagation();
-    console.log("handleQuantityChange");
+    updateItem(item, +e.currentTarget.value);
+  };
+
+  const handleDeleteItem = () => {
+    deleteItem(item);
   };
 
   return (
@@ -18,8 +26,10 @@ const CatalogItem = ({ item, quantity }: CartItem) => {
       <p className="description">{item.description}</p>
       <span className="price">{formatPrice(item.price)} руб.</span>
       <div className="links">
-        <Link href="#">Избранные</Link>
-        <Link href="#">Удалить</Link>
+        <button className="link">Избранные</button>
+        <button className="link" onClick={handleDeleteItem}>
+          Удалить
+        </button>
       </div>
       <input
         className="input"

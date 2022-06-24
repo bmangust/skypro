@@ -6,24 +6,20 @@ import { ReactComponent as CartIcon } from "assets/icons/cart.svg";
 import { ReactComponent as FaveIcon } from "assets/icons/fav.svg";
 import { catalog, Item } from "store/catalog";
 import { observer } from "mobx-react-lite";
+import { cart } from "store/cart";
 
-const CatalogItem = ({
-  id,
-  img,
-  title,
-  description,
-  price,
-  isFavorite,
-}: Item) => {
+const CatalogItem = (item: Item) => {
+  const { id, img, title, description, price, isFavorite } = item;
+
   const handleCartClick = (e: MouseEvent) => {
     e.stopPropagation();
     console.log("handleCartClick");
+    cart.add(item);
   };
   const handleFaveClick = (e: MouseEvent) => {
     e.stopPropagation();
     catalog.switchFave(id);
   };
-
   const getActiveClass = (classes: string): string =>
     isFavorite ? cn(classes, "active") : classes;
 
