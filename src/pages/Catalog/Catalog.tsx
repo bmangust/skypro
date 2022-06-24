@@ -1,4 +1,4 @@
-import "./Catalog.scss";
+import css from "./Catalog.module.scss";
 import Layout from "layout/Layout";
 import CatalogItem from "components/CatalogItem";
 import Select from "components/Select";
@@ -16,10 +16,10 @@ const Catalog = () => {
 
   return (
     <Layout>
-      <div className="select-wrapper">
+      <div className={css.selectWrapper}>
         <Select />
       </div>
-      <div className="catalog">
+      <div className={css.catalog}>
         {items.length ? (
           items.map((el) => <CatalogItem key={el.id} {...el} />)
         ) : (

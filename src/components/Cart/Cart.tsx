@@ -1,7 +1,8 @@
 import CartItem from "components/CartItem";
 import { observer } from "mobx-react-lite";
 import { cart } from "store/cart";
-import "./Cart.scss";
+import css from "./Cart.module.scss";
+import cn from "classnames";
 
 const Cart = () => {
   const { items, updateItem, deleteItem, clearCart } = cart;
@@ -19,16 +20,18 @@ const Cart = () => {
       />
     ))
   ) : (
-    <span className="message">В корзине пусто</span>
+    <span className={css.message}>В корзине пусто</span>
   );
   return (
-    <div className="cart">
+    <div className={css.cart}>
       {content}
-      <div className="buttons">
-        <button className="button" onClick={handleDelete}>
+      <div className={css.buttons}>
+        <button className={css.button} onClick={handleDelete}>
           Очистить корзину
         </button>
-        <button className="button secondary">Продолжить покупки</button>
+        <button className={cn(css.button, css.secondary)}>
+          Продолжить покупки
+        </button>
       </div>
     </div>
   );

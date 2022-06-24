@@ -1,13 +1,13 @@
 import Cart from "components/Cart";
 import Layout from "layout/Layout";
-import "./Checkout.scss";
+import css from "./Checkout.module.scss";
 
 const Checkout = () => {
   return (
     <Layout>
-      <div className="checkout">
+      <div className={css.checkout}>
         <Cart />
-        <div className="order">Order</div>
+        <div className={css.order}>Order</div>
       </div>
     </Layout>
   );

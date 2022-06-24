@@ -1,7 +1,7 @@
-import "./Spinner.scss";
+import css from "./Spinner.module.scss";
 
 const Spinner = () => {
-  return <div className="loader">Loading...</div>;
+  return <div className={css.loader}>Loading...</div>;
 };
 
 export default Spinner;

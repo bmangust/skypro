@@ -1,7 +1,7 @@
 import { observer } from "mobx-react-lite";
 import type { ChangeEvent } from "react";
 import { catalog, SORTING_CRITERIA } from "store/catalog";
-import "./Select.scss";
+import css from "./Select.module.scss";
 
 const options = [
   { label: "сперва новые", value: SORTING_CRITERIA.new },
@@ -17,7 +17,7 @@ const Select = () => {
   };
 
   return (
-    <select className="select" value={sortBy} onChange={handleSelect}>
+    <select className={css.select} value={sortBy} onChange={handleSelect}>
       {options.map((el) => (
         <option key={el.value} value={el.value}>
           Порядок: {el.label}

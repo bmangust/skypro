@@ -1,6 +1,6 @@
 import type { ChangeEvent } from "react";
 import { observer } from "mobx-react-lite";
-import "./CartItem.scss";
+import css from "./CartItem.module.scss";
 import { formatPrice } from "utils";
 import type { CartItem } from "store/cart";
 import type { Item } from "store/catalog";
@@ -20,19 +20,19 @@ const CatalogItem = ({ item, quantity, updateItem, deleteItem }: Props) => {
   };
 
   return (
-    <div className="item">
-      <img className="img" src={item.img} alt={`${item.title}`} />
-      <span className="title">{item.title}</span>
-      <p className="description">{item.description}</p>
-      <span className="price">{formatPrice(item.price)} руб.</span>
-      <div className="links">
-        <button className="link">Избранные</button>
-        <button className="link" onClick={handleDeleteItem}>
+    <div className={css.item}>
+      <img className={css.img} src={item.img} alt={`${item.title}`} />
+      <span className={css.title}>{item.title}</span>
+      <p className={css.description}>{item.description}</p>
+      <span className={css.price}>{formatPrice(item.price)} руб.</span>
+      <div className={css.links}>
+        <button className={css.link}>Избранные</button>
+        <button className={css.link} onClick={handleDeleteItem}>
           Удалить
         </button>
       </div>
       <input
-        className="input"
+        className={css.input}
         value={quantity}
         onChange={handleQuantityChange}
         type="number"

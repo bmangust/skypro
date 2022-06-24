@@ -1,6 +1,6 @@
 import { MouseEvent } from "react";
 import cn from "classnames";
-import "./CatalogItem.scss";
+import css from "./CatalogItem.module.scss";
 import { formatPrice } from "utils";
 import { ReactComponent as CartIcon } from "assets/icons/cart.svg";
 import { ReactComponent as FaveIcon } from "assets/icons/fav.svg";
@@ -13,7 +13,6 @@ const CatalogItem = (item: Item) => {
 
   const handleCartClick = (e: MouseEvent) => {
     e.stopPropagation();
-    console.log("handleCartClick");
     cart.add(item);
   };
   const handleFaveClick = (e: MouseEvent) => {
@@ -24,10 +23,10 @@ const CatalogItem = (item: Item) => {
     isFavorite ? cn(classes, "active") : classes;
 
   return (
-    <div className="item">
-      <div className="img-container">
+    <div className={css.item}>
+      <div className={css.imgContainer}>
         <img src={img} alt={`${title}`} />
-        <div className="icon-container">
+        <div className={css.iconContainer}>
           <button className="button icon" onClick={handleCartClick}>
             <CartIcon />
           </button>
@@ -39,9 +38,9 @@ const CatalogItem = (item: Item) => {
           </button>
         </div>
       </div>
-      <span className="title">{title}</span>
-      <p className="description">{description}</p>
-      <span className="price">{formatPrice(price)} руб.</span>
+      <span className={css.title}>{title}</span>
+      <p className={css.description}>{description}</p>
+      <span className={css.price}>{formatPrice(price)} руб.</span>
     </div>
   );
 };

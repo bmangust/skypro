@@ -1,5 +1,5 @@
 import { FC, ReactNode } from "react";
-import "./Link.scss";
+import css from "./Link.module.scss";
 import cn from "classnames";
 
 interface Props {
@@ -10,7 +10,7 @@ interface Props {
 
 const Link: FC<Props> = ({ href, children, className }) => {
   return (
-    <a href={href} className={cn("link", className)}>
+    <a href={href} className={cn(css.link, className)}>
       {children}
     </a>
   );
