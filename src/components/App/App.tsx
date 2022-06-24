@@ -1,7 +1,7 @@
 import css from "./App.module.scss";
 import Catalog from "pages/Catalog";
 import Checkout from "pages/Checkout";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
