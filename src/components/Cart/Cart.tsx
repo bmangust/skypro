@@ -29,6 +29,10 @@ const Cart = ({ className }: Props) => {
   );
   return (
     <div className={cn(css.cart, className)}>
+      <div className={css.header}>
+        <span className={css.headerItem}>Товар</span>
+        <span className={css.headerItem}>К-во</span>
+      </div>
       {content}
       <div className={css.buttons}>
         <button className={css.button} onClick={handleDelete}>

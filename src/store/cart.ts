@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import type { Item } from "./catalog";
+import { defaultItems, Item } from "./catalog";
 
 interface CartItemProps {
   item: Item;
@@ -38,6 +38,7 @@ class Cart {
   error?: string;
   constructor() {
     this._items = {};
+    this.add(defaultItems[0]);
     makeAutoObservable(this);
   }
 

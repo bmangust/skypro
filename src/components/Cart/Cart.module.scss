@@ -1,3 +1,5 @@
+@import "styles/_variables";
+
 .cart {
   display: flex;
   flex-direction: column;
@@ -7,6 +9,8 @@
     flex-wrap: wrap;
     justify-content: space-around;
     gap: 30px;
+    margin-top: 25px;
+
     .button {
       font-size: 14px;
       padding: 10px 20px;
@@ -24,5 +28,21 @@
 
   .message {
     margin-bottom: 1rem;
+  }
+
+  .header {
+    display: none;
+  }
+}
+
+@media (min-width: $phone_width) {
+  .cart {
+    .header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      font-size: 16px;
+      line-height: 20px;
+    }
   }
 }

@@ -1,18 +1,21 @@
 @import "styles/_variables";
 
 .item {
+  display: flex;
+  border-top: 1px solid #cacdd8;
+  padding-top: 18px;
+}
+
+.img {
+  display: none;
+}
+.wrapper {
   display: grid;
   justify-content: space-between;
+  width: 100%;
   margin: 16px;
-  padding-top: 18px;
   grid-template-columns: repeat(8, 1fr) 100px;
   text-align: left;
-  border-top: 1px solid #cacdd8;
-
-  .img {
-    display: none;
-    grid-column: 1/-1;
-  }
 
   .title {
     color: $text_color;
@@ -59,7 +62,6 @@
 
   .links {
     display: flex;
-    justify-content: space-between;
     grid-column: 1/6;
 
     .link {
@@ -67,6 +69,16 @@
       text-decoration: underline;
       border: none;
       background: none;
+      margin-right: 30px;
     }
+  }
+}
+
+@media (min-width: $phone_width) {
+  .img {
+    display: inline-block;
+    object-fit: cover;
+    width: 173px;
+    height: 173px;
   }
 }

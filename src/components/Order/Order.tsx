@@ -1,6 +1,8 @@
 import cn from "classnames";
+import { observer } from "mobx-react-lite";
 import { ChangeEvent, useState } from "react";
 import { cart } from "store/cart";
+import { formatPrice } from "utils";
 import css from "./Order.module.scss";
 
 interface Props {
@@ -50,7 +52,7 @@ const Order = ({ className }: Props) => {
       </form>
       <div className="priceWrapper">
         Итого:
-        <span className={css.price}>{` ${totalPrice} руб.`}</span>
+        <span className={css.price}>{` ${formatPrice(totalPrice)} руб.`}</span>
       </div>
       <button className={css.submit} onClick={handleSubmit}>
         Оформить заказ
@@ -59,4 +61,4 @@ const Order = ({ className }: Props) => {
   );
 };
 
-export default Order;
+export default observer(Order);

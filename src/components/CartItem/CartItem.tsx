@@ -22,21 +22,23 @@ const CatalogItem = ({ item, quantity, updateItem, deleteItem }: Props) => {
   return (
     <div className={css.item}>
       <img className={css.img} src={item.img} alt={`${item.title}`} />
-      <span className={css.title}>{item.title}</span>
-      <p className={css.description}>{item.description}</p>
-      <span className={css.price}>{formatPrice(item.price)} руб.</span>
-      <div className={css.links}>
-        <button className={css.link}>Избранные</button>
-        <button className={css.link} onClick={handleDeleteItem}>
-          Удалить
-        </button>
+      <div className={css.wrapper}>
+        <span className={css.title}>{item.title}</span>
+        <p className={css.description}>{item.description}</p>
+        <span className={css.price}>{formatPrice(item.price)} руб.</span>
+        <div className={css.links}>
+          <button className={css.link}>Избранные</button>
+          <button className={css.link} onClick={handleDeleteItem}>
+            Удалить
+          </button>
+        </div>
+        <input
+          className={css.input}
+          value={quantity}
+          onChange={handleQuantityChange}
+          type="number"
+        />
       </div>
-      <input
-        className={css.input}
-        value={quantity}
-        onChange={handleQuantityChange}
-        type="number"
-      />
     </div>
   );
 };
